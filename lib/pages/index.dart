@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:chat/pages/friend.dart';
 import 'package:chat/pages/message.dart';
 import 'package:chat/pages/my.dart';
@@ -6,6 +7,11 @@ import 'package:chat/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 class Index extends StatefulWidget {
+
+  Index({this.index = 0});
+
+  int index;
+
   @override
   _IndexState createState() => _IndexState();
 }
@@ -21,6 +27,11 @@ class _IndexState extends State<Index> {
     My(),
   ];
 
+  initState(){
+    super.initState();
+    this._currentIndex = widget.index;
+  }
+
   _changeIndex(int index){
     setState(() {
       _currentIndex = index;
@@ -33,6 +44,8 @@ class _IndexState extends State<Index> {
       theme: ThemeData(
         primaryColor: Colors.green,
       ),
+      builder: BotToastInit(),
+      navigatorObservers: [BotToastNavigatorObserver()],
       routes: routes,
       home: Scaffold(
         body: _children[_currentIndex],

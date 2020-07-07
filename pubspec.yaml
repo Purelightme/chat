@@ -26,6 +26,7 @@ dependencies:
   flutter_screenutil: ^2.1.0
   shared_preferences: '^0.5.6+3'
   dio: ^3.0.0
+  bot_toast: ^3.0.0
 
 dev_dependencies:
   flutter_test:
